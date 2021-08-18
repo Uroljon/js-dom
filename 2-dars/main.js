@@ -3,8 +3,9 @@ let ulElem = document.createElement("ul");
 // home 
 let home = document.createElement("li");
 let homeLink = document.createElement("a");
-homeLink.setAttribute("href", "https://uroljon.ml");
-homeLink.setAttribute("target", "_blank");
+homeLink.setAttribute("href", "#!");
+// homeLink.setAttribute("href", "https://uroljon.ml");
+// homeLink.setAttribute("target", "_blank");
 homeLink.textContent = "Home";
 // about
 let about = document.createElement("li");
@@ -20,7 +21,7 @@ contactLink.textContent = "Contact";
 let services = document.createElement("li");
 let servicesLink = document.createElement("a");
 servicesLink.setAttribute("href", "#services");
-servicesLink.textContent = "Servces";
+servicesLink.textContent = "Services";
 // blog
 let blog = document.createElement("li");
 let blogLink = document.createElement("a");
@@ -83,16 +84,21 @@ document.querySelectorAll("a").forEach(function(a){
     a.addEventListener("mouseleave", function(e){
         e.target.setAttribute("style", "padding: 15px; text-decoration: none; background-color: none; color: black; display: block;")
     });
-    // class active
-    
-    a.addEventListener("click", function(e){
-        document.querySelectorAll("li").forEach(function (param) { 
-            param.classList.remove("active");
-         });
-        e.target.parent.className = "active";            
-    });
-
 })
+// class active
+document.querySelectorAll("li").forEach(function (param) {
+    
+    param.addEventListener("click", function(e){
+
+        document.querySelectorAll("li").forEach(function (liDeleter) {
+            liDeleter.classList.remove("active");
+        });         
+
+        e.currentTarget.className = "active";
+      
+    });
+    
+ });
 loginElem.style.marginRight = "40px";
-loginInput.setAttribute("style", "padding: none; border: 1px solid #d3d3d3;  ");
+loginInput.setAttribute("style", "padding: none; border: 1px solid #d3d3d3;  max-width: 110px;");
 loginInputHideButton.setAttribute("style", "border: none; background: transparent;");
