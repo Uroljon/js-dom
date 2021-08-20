@@ -5,7 +5,8 @@
   font-family: sans-serif;
 }
 
-ul, a {
+ul,
+a {
   list-style: none;
   text-decoration: none;
 }
@@ -16,9 +17,9 @@ ul, a {
 }
 
 nav {
-  background-color: #004355;
-  border-bottom: 1px solid black;
-  box-shadow: 0px 0px 7px 2px black;
+  background-color: white;
+  font-size: 1.1rem;
+  box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.26);
 }
 nav .navbar-wrapper {
   display: flex;
@@ -34,29 +35,80 @@ nav .navbar-wrapper .navbar-nav li > a {
   display: block;
 }
 nav .navbar-wrapper .navbar-nav li > a:hover {
-  background-color: rgba(163, 145, 145, 0.096);
-  color: #51ff00;
+  background-color: #00BAFC;
+  color: white;
   transition: 400ms;
 }
+nav .navbar-wrapper .navbar-nav .navbar-dropdown-toggler:hover #navbar-dropdown {
+  transform: scale(1);
+  transition: 300ms;
+}
 nav .navbar-wrapper .navbar-nav #navbar-dropdown {
+  font-size: 0.99rem;
+  background-color: white;
+  z-index: 5;
+  transform: scale(0);
   position: absolute;
   top: 100%;
-  box-shadow: 0px 0px 7px 2px black;
-  background-color: #004355;
-}
-nav .navbar-wrapper .navbar-nav #navbar-dropdown:hover {
-  display: block;
+  left: 63%;
+  width: 180px;
+  box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.26);
+  border-radius: 7px;
 }
 nav .navbar-wrapper .navbar-nav #navbar-dropdown li > a:hover {
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   padding: 13px 15px;
+  transition: none;
+}
+nav .navbar-wrapper .navbar-social > a {
+  padding: 0 5px;
 }
 nav .navbar-wrapper .navbar-social > a:hover {
-  color: #51ff00;
+  color: #00BAFC;
 }
 nav a {
-  color: white;
+  color: black;
+}
+
+#main .main-wrapper {
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+#main .main-wrapper .main-right {
+  border: 1px solid red;
+}
+
+.accordion .accordion-item .accordion-item-toggler {
+  font-size: initial;
+  width: 100%;
+  text-align: left;
+  padding: 5px 5px 5px 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: 300ms;
+}
+.accordion .accordion-item .accordion-item-toggler:hover, .accordion .accordion-item .accordion-item-toggler:focus {
+  background-color: whitesmoke;
+  font-weight: 600;
+}
+.accordion .accordion-item .accordion-body {
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  max-height: 0;
+}
+.accordion .accordion-item .accordion-body li {
+  padding: 5px 5px 5px 20px;
+  cursor: pointer;
+}
+.accordion .accordion-item .accordion-body li:hover {
+  background-color: cadetblue;
+}
+.accordion .accordion-item .accordion-body li:active {
+  color: cornsilk;
 }
 
 @media (min-width: 576px) {
