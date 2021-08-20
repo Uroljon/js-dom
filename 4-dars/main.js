@@ -26,9 +26,9 @@ let componentTriggers = document.querySelectorAll(".component-trigger");
 //         console.log("ha :)")
 //     })
 // }
-componentTriggers.forEach(function(li){
+componentTriggers.forEach(function (li) {
     // console.log(li)
-    li.addEventListener("click", (e)=>{
+    li.addEventListener("click", (e) => {
         console.log(li.dataset.target)
     })
 })
