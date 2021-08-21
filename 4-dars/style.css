@@ -82,13 +82,22 @@ nav a {
   box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.26);
   display: none;
 }
-#main .main-wrapper .main-right .component-content h2 {
+#main .main-wrapper .main-right .component-content .component-heading {
   font-size: 2rem;
   margin: 10px 0;
 }
-#main .main-wrapper .main-right .component-content h3 {
+#main .main-wrapper .main-right .component-content .component-subheading {
   font-size: 1.5rem;
   margin: 5px 0;
+}
+#main .main-wrapper .main-right .component-content .component-description {
+  padding: 5px 0 15px 0;
+}
+#main .main-wrapper .main-right .component-content code {
+  background-color: #f4f4f4;
+  white-space: nowrap;
+  word-wrap: break-word;
+  color: red;
 }
 
 .accordion .accordion-item .accordion-item-toggler {
