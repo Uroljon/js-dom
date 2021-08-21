@@ -35,7 +35,7 @@ nav .navbar-wrapper .navbar-nav li > a {
   display: block;
 }
 nav .navbar-wrapper .navbar-nav li > a:hover {
-  background-color: #00BAFC;
+  background-color: #00bafc;
   color: white;
   transition: 400ms;
 }
@@ -65,7 +65,7 @@ nav .navbar-wrapper .navbar-social > a {
   padding: 0 5px;
 }
 nav .navbar-wrapper .navbar-social > a:hover {
-  color: #00BAFC;
+  color: #00bafc;
 }
 nav a {
   color: black;
@@ -74,15 +74,26 @@ nav a {
 #main .main-wrapper {
   padding: 40px 0;
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 20% 1fr;
 }
-#main .main-wrapper .main-right {
-  border: 1px solid red;
+#main .main-wrapper .main-right .component-content {
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.26);
+  display: none;
+}
+#main .main-wrapper .main-right .component-content h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+#main .main-wrapper .main-right .component-content h3 {
+  font-size: 1.5rem;
+  margin: 5px 0;
 }
 
 .accordion .accordion-item .accordion-item-toggler {
   font-size: initial;
-  width: 100%;
+  width: 90%;
   text-align: left;
   padding: 5px 5px 5px 10px;
   cursor: pointer;
@@ -101,13 +112,15 @@ nav a {
   max-height: 0;
 }
 .accordion .accordion-item .accordion-body li {
+  width: 90%;
   padding: 5px 5px 5px 20px;
   cursor: pointer;
 }
 .accordion .accordion-item .accordion-body li:hover {
   background-color: cadetblue;
 }
-.accordion .accordion-item .accordion-body li:active {
+.accordion .accordion-item .accordion-body li.active {
+  background-color: cadetblue;
   color: cornsilk;
 }
 

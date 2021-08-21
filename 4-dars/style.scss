@@ -19,9 +19,9 @@ a {
 // navbar
 $navbar_background: white;
 $navbar_color: black;
-$link_hover_background : #00BAFC;
+$link_hover_background: #00bafc;
 $link_hover_color: white;
-$navbar_link_padding : 15px;
+$navbar_link_padding: 15px;
 $navbar_font_size: 1.1rem;
 nav {
     background-color: $navbar_background;
@@ -49,7 +49,6 @@ nav {
                 #navbar-dropdown {
                     transform: scale(1);
                     transition: 300ms;
-                    
                 }
             }
             #navbar-dropdown {
@@ -61,7 +60,7 @@ nav {
                 top: 100%;
                 left: 63%; //bularni contentga qarab moslashtirish kerak
                 width: 180px; //bularni contentga qarab moslashtirish kerak
-                box-shadow:  0px 2px 10px 2px rgba(0, 0, 0, 0.26);
+                box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.26);
                 border-radius: 7px;
                 li > a:hover {
                     border-top: 1px solid white;
@@ -86,12 +85,23 @@ nav {
 #main .main-wrapper {
     padding: 40px 0;
     display: grid;
-    grid-template-columns: 20% 80%;
-    .main-left {
-        // border: 1px solid red;
-    }
+    grid-template-columns: 20% 1fr;
+
     .main-right {
-        border: 1px solid red;
+        .component-content {
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.26);
+            display: none;
+            h2{
+                font-size: 2rem;
+                margin: 10px 0;
+            }
+            h3{
+                font-size: 1.5rem;
+                margin: 5px 0;
+            }
+        }
     }
 }
 // Accordion
@@ -99,7 +109,7 @@ nav {
     .accordion-item {
         .accordion-item-toggler {
             font-size: initial;
-            width: 100%;
+            width: 90%;
             text-align: left;
             padding: 5px 5px 5px 10px;
             cursor: pointer;
@@ -119,12 +129,17 @@ nav {
             max-height: 0;
             // &.collapse {max-height: 0;} // buni ham js bn to'g'riladim
             li {
+                width: 90%;
                 padding: 5px 5px 5px 20px;
                 cursor: pointer;
                 &:hover {
                     background-color: cadetblue;
                 }
-                &:active {
+                // &:active {
+                //     color: cornsilk;
+                // }
+                &.active{
+                    background-color: cadetblue;
                     color: cornsilk;
                 }
             }

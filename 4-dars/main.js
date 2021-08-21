@@ -1,5 +1,4 @@
 //Accordeon component 
-
 let accordionTogglers = document.querySelectorAll(".accordion-item-toggler");
 accordionTogglers.forEach(function (toggler) {
     toggler.addEventListener("click", function (e) {
@@ -20,16 +19,22 @@ accordionTogglers.forEach(function (toggler) {
 
 });
 
+// toggle component content
 let componentTriggers = document.querySelectorAll(".component-trigger");
-// for(let i=0; i<componentTriggers.length; i++){
-//     componentTriggers[i].addEventListener("click", (e)=>{
-//         console.log("ha :)")
-//     })
-// }
 componentTriggers.forEach(function (li) {
-    // console.log(li)
     li.addEventListener("click", (e) => {
-        console.log(li.dataset.target)
+
+        componentTriggers.forEach((otherLiElements) => {
+            otherLiElements.classList.remove("active");//qolgan li lardan active ni olib tashadi
+        })
+        e.target.classList.add("active");//bosilgan li ga active class qo'shdi
+
+        let target = li.dataset.target;
+        let otherComponents = document.querySelectorAll(".component-content");
+        otherComponents.forEach((otherComponent) => {
+            otherComponent.style.display = "none";//noshqa componentlarni o'chirdi
+        });
+        document.querySelector(`.${target}`).style.display = "block";//target componentni yoqdi
     })
 })
 
