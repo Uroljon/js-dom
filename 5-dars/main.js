@@ -3,9 +3,14 @@ let you = 0;
 let AI = 0;
 let draw = 0;
 let round = 0;
+let AI_says = [
+    ["Tog'o, sekinroq o'ynayvering 🙄", "Eee, Vapshe malades 😀", "Qaydan topyapsiz-e 😒", "Bo'lli, endi o'ynamayman 🤕", "Tog'o, o'zi bugun sal mazam yo'g'iydidaaa 🤥", "Ataylab yutqazib beryapman 👀", "Fatxulladan qarz so'rab turaman shekilli 😔", "TATUda o'qimaganmisiz mobodooo 🤔", "👍www.uroljon.ml👍"],
+    ["Hammani ketmoni uchsa-yu, bitta sizniki uchmasa-ya, Rais Buva 🥺", "Hammasi yaxshi bo'ladi, siz gazini bosing 👌 ?", "Ha bugun yutqizsa, keyingi sapar yutar 😟", "Ako, muniyam o'ynashga kalla kerak 😅", "Muvofaqqiyatga yo'l tekis bo'lmaydi, bo'tam 🦉", "Olmani danagidan yeyish keragakan 🍏", "O'yin hazil bilan esda qolsin diymanda, og'o", "bir bo'pqoldi-da 🎅", "Tug'ilgan kunimga kemay qomang yana 🙃", "👍www.uroljon.ml👍"],
+    ["Boriga baraka 🤝", "на здоровье 🥂", "Hech kim xafa bomasin-a 😀"]
+];
 function start(sign) {
 
-    alert(screen.width)
+    // alert(screen.width)
 
     let leftHandImage = document.querySelector(".leftHandImage");
     let rightHandImage = document.querySelector(".rightHandImage");
@@ -14,6 +19,7 @@ function start(sign) {
     let rightHandResult = document.querySelector("#round-right-result");
 
     let random = Math.round(Math.random() * 2);
+    let randomForAI;
 
     leftHandImage.style.animation = "handAnimationLeft 0.8s ease-in 1 forwards";
     rightHandImage.style.animation = "handAnimationRight 0.8s ease-in 1 forwards";
@@ -50,21 +56,31 @@ function start(sign) {
             document.querySelector("#humanScore").innerHTML = you;
             document.querySelector("#round-left-result path").style.fill = "#E62649";
             document.querySelector("#round-right-result path").style.fill = "#BEBEBE";
+            // AI sentences
+            randomForAI = Math.round(Math.random() * AI_says[0].length)
+            document.querySelector("#AI_Says").innerHTML = `${AI_says[0][randomForAI]}`;
         } else if ((sign === "paper" && random === 2) || (sign === "rock" && random === 0) || (sign === "scissors" && random === 1)) {
             AI++;
             document.querySelector("#AIScore").innerHTML = AI;
             document.querySelector("#round-left-result path").style.fill = "#BEBEBE";
             document.querySelector("#round-right-result path").style.fill = "#E62649";
+            // AI sentences
+            randomForAI = Math.round(Math.random() * AI_says[1].length)
+            document.querySelector("#AI_Says").innerHTML = `${AI_says[1][randomForAI]}`;
         } else if ((sign === "paper" && random === 0) || (sign === "rock" && random === 1) || (sign === "scissors" && random === 2)) {
             draw++;
             document.querySelector("#drawScore").innerHTML = draw;
+            // AI sentences
+            randomForAI = Math.round(Math.random() * AI_says[2].length)
+            document.querySelector("#AI_Says").innerHTML = `${AI_says[2][randomForAI]}`;
         }
         // calculate round count
         round++;
         document.querySelectorAll(".round").forEach((elem) => {
             elem.innerHTML = round;
         })
-    })
+        // 
+    });
 }
 
 /***
