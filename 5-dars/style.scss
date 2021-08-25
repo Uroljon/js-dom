@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.wrapper {
+    h2{
+        color: red;
+    }
+    width: 85%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 40px 0;
+    text-align: center;
+    overflow: hidden;
+    .statistics {
+        display: flex;
+        justify-content: space-around;
+        margin: 30px auto;
+        #humanScore,
+        #drawScore,
+        #AIScore {
+            font-size: 40px;
+            padding: 15px;
+        }
+    }
+    .game-wrapper {
+        display: flex;
+        justify-content: center;
+        .game-left,
+        .game-right {
+            width: 33%;
+            border: 1px solid #e8ecf7;
+            img {
+                padding: 30% 0 25%;
+                width: 85%;
+            }
+        }
+        .game-left {
+            text-align: left;
+            .control-buttons {
+                display: flex;
+                justify-content: space-between;
+                width: 70%;
+                margin: auto;
+                padding-bottom: 20px;
+                svg {
+                    width: 90%;
+                    cursor: pointer;
+                }               
+            }
+        }
+        .game-right {
+            text-align: right;
+            position: relative;
+            img {
+                transform: scaleX(-1);
+            }           
+            a {
+                color: rgb(32, 153, 153);
+                text-decoration: none;
+                position: absolute;
+                left: 5%;
+                bottom: 5%;
+                font-size: 2vw;
+            }
+        }
+        .game-middle {
+            width: 33%;
+            padding: 5% 3%;
+            font-size: 2vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            hr {
+                margin: 20px 0;
+            }
+            #AI_Says{
+                font-size: 1.5vw;
+            }
+        }
+    }
+}
+@keyframes handAnimationLeft {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    60% {
+        transform: rotate(-40deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes handAnimationRight {
+    0% {
+        transform: rotate(0deg) scaleX(-1);
+    }
+
+    60% {
+        transform: rotate(40deg) scaleX(-1);
+    }
+    100% {
+        transform: rotate(0deg) scaleX(-1);
+    }
+}
+

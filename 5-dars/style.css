@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  width: 85%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+  overflow: hidden;
+}
+.wrapper h2 {
+  color: red;
+}
+.wrapper .statistics {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px auto;
+}
+.wrapper .statistics #humanScore,
+.wrapper .statistics #drawScore,
+.wrapper .statistics #AIScore {
+  font-size: 40px;
+  padding: 15px;
+}
+.wrapper .game-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.wrapper .game-wrapper .game-left,
+.wrapper .game-wrapper .game-right {
+  width: 33%;
+  border: 1px solid #e8ecf7;
+}
+.wrapper .game-wrapper .game-left img,
+.wrapper .game-wrapper .game-right img {
+  padding: 30% 0 25%;
+  width: 85%;
+}
+.wrapper .game-wrapper .game-left {
+  text-align: left;
+}
+.wrapper .game-wrapper .game-left .control-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+  padding-bottom: 20px;
+}
+.wrapper .game-wrapper .game-left .control-buttons svg {
+  width: 90%;
+  cursor: pointer;
+}
+.wrapper .game-wrapper .game-right {
+  text-align: right;
+  position: relative;
+}
+.wrapper .game-wrapper .game-right img {
+  transform: scaleX(-1);
+}
+.wrapper .game-wrapper .game-right a {
+  color: #209999;
+  text-decoration: none;
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  font-size: 2vw;
+}
+.wrapper .game-wrapper .game-middle {
+  width: 33%;
+  padding: 5% 3%;
+  font-size: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrapper .game-wrapper .game-middle hr {
+  margin: 20px 0;
+}
+.wrapper .game-wrapper .game-middle #AI_Says {
+  font-size: 1.5vw;
+}
+
+@-webkit-keyframes handAnimationLeft {
+  0% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(-40deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes handAnimationLeft {
+  0% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(-40deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes handAnimationRight {
+  0% {
+    transform: rotate(0deg) scaleX(-1);
+  }
+  60% {
+    transform: rotate(40deg) scaleX(-1);
+  }
+  100% {
+    transform: rotate(0deg) scaleX(-1);
+  }
+}
+@keyframes handAnimationRight {
+  0% {
+    transform: rotate(0deg) scaleX(-1);
+  }
+  60% {
+    transform: rotate(40deg) scaleX(-1);
+  }
+  100% {
+    transform: rotate(0deg) scaleX(-1);
+  }
+}/*# sourceMappingURL=style.css.map */
