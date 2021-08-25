@@ -129,4 +129,41 @@
   100% {
     transform: rotate(0deg) scaleX(-1);
   }
+}
+@media (max-width: 768px) {
+  .wrapper {
+    width: 98%;
+  }
+  .wrapper .game-wrapper .game-left,
+.wrapper .game-wrapper .game-right {
+    width: 35%;
+  }
+  .wrapper .game-wrapper .game-left img,
+.wrapper .game-wrapper .game-right img {
+    padding: 30% 0 25%;
+    width: 95%;
+  }
+  .wrapper .game-wrapper .game-left .control-buttons {
+    width: 95%;
+  }
+  .wrapper .game-wrapper .game-left .control-buttons svg {
+    width: 90%;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+  }
+  .wrapper .game-wrapper .game-right a {
+    font-size: 3vw;
+  }
+  .wrapper .game-wrapper .game-middle {
+    width: 30%;
+    padding: 5% 2%;
+    font-size: 3vw;
+  }
+  .wrapper .game-wrapper .game-middle #round-left-result svg, .wrapper .game-wrapper .game-middle #round-right-result svg {
+    width: 25% !important;
+  }
+  .wrapper .game-wrapper .game-middle #AI_Says {
+    font-size: 2vw;
+  }
 }/*# sourceMappingURL=style.css.map */

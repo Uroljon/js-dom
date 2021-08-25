@@ -107,3 +107,47 @@
     }
 }
 
+@media (max-width: 768px){
+    .wrapper{
+        width: 98%;
+
+        .game-wrapper {      
+            .game-left,
+            .game-right {
+                width: 35%;
+                img {
+                    padding: 30% 0 25%;
+                    width: 95%;
+                }
+            }
+            .game-left {
+                .control-buttons {
+                    width: 95%;
+                    svg {
+                        width: 90%;
+                        display: block;
+                        margin: auto;
+                        cursor: pointer;
+                    }               
+                }
+            }
+            .game-right {
+                a {
+                    font-size: 3vw;
+                }
+            }
+            .game-middle {
+                width: 30%;
+                padding: 5% 2%;
+                font-size: 3vw;
+                #round-left-result svg, #round-right-result svg{
+                    width: 25% !important;
+                }
+                #AI_Says{
+                    font-size: 2vw;
+                }
+            }
+        }
+    }
+   
+}
