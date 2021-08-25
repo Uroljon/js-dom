@@ -5,6 +5,8 @@ let draw = 0;
 let round = 0;
 function start(sign) {
 
+    alert(screen.width)
+
     let leftHandImage = document.querySelector(".leftHandImage");
     let rightHandImage = document.querySelector(".rightHandImage");
 
