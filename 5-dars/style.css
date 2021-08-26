@@ -159,10 +159,25 @@
     padding: 5% 2%;
     font-size: 3vw;
   }
-  .wrapper .game-wrapper .game-middle #round-left-result svg, .wrapper .game-wrapper .game-middle #round-right-result svg {
+  .wrapper .game-wrapper .game-middle #round-left-result svg,
+.wrapper .game-wrapper .game-middle #round-right-result svg {
     width: 25% !important;
   }
   .wrapper .game-wrapper .game-middle #AI_Says {
     font-size: 2vw;
   }
+}
+.re-play {
+  position: absolute;
+  top: 33px;
+  left: 55vw;
+  cursor: pointer;
+  border: 1px solid silver;
+  border-radius: 5px;
+  padding: 5px;
+  transition: 300ms;
+}
+.re-play:hover {
+  background-color: black;
+  color: white;
 }/*# sourceMappingURL=style.css.map */

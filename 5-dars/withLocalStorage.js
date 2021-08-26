@@ -1,38 +1,49 @@
 /**🔸 Rock, Paper, Scissors game* */
-let you = 0;
-let AI = 0;
-let draw = 0;
-let round = 0;
+let whoWinsArray;
 let random;
 let mySign;
 let leftHandImage = document.querySelector(".leftHandImage");
 let rightHandImage = document.querySelector(".rightHandImage");
 let leftHandResult = document.querySelector("#round-left-result");
 let rightHandResult = document.querySelector("#round-right-result");
+
 let AI_says = [
     ["Tog'o, sekinroq o'ynayvering 🙄", "Eee, Vapshe malades 😀", "Qaydan topyapsiz-e 😒", "Bo'lli, endi o'ynamayman 🤕", "Tog'o, o'zi bugun sal mazam yo'g'iydidaaa 🤥", "Ataylab yutqazib beryapman 👀", "Rais buvadan qarz so'rab turaman shekilli 😔", "TATUda o'qimaganmisiz mobodooo 🤔", "👍www.uroljon.ml👍"],
     ["Hammani ketmoni uchsa-yu, bitta sizniki uchmasa-ya, Rais Buva 🥺", "Hammasi yaxshi bo'ladi, siz gazini bosing 👌 ?", "Ha bugun yutqizsa, keyingi sapar yutar 😟", "Ako, muniyam o'ynashga kalla kerak 😅", "Muvofaqqiyatga yo'l tekis bo'lmaydi, bo'tam 🦉", "Olmani danagidan yeyish keragakan 🍏", "O'yin hazil bilan esda qolsin diymanda, og'o", "bir bo'pqoldi-da 🎅", "Tug'ilgan kunimga kemay qomang yana 🙃", "👍www.uroljon.ml👍"],
     ["Boriga baraka 🤝", "на здоровье 🥂", "Hech kim xafa bomasin-a 😀"]
 ];
 
+if (localStorage.getItem("whoWins")) {//avaaldan ma'lumot bo'lsa, shuni render qil
+    // write all scores accordingly
+    document.querySelector("#humanScore").innerHTML = JSON.parse(localStorage.getItem("whoWins")).filter((elem) => elem === "you").length;
+    document.querySelector("#AIScore").innerHTML = JSON.parse(localStorage.getItem("whoWins")).filter((elem) => elem === "AI").length;
+    document.querySelector("#drawScore").innerHTML = JSON.parse(localStorage.getItem("whoWins")).filter((elem) => elem === "draw").length;
+    document.querySelectorAll(".round").forEach((e) => {
+        e.innerHTML = JSON.parse(localStorage.getItem("whoWins")).length;;
+    })
+}
+
 function start(sign) {
     mySign = sign;
     random = Math.round(Math.random() * 2);
+    // get localStorage data :
+    whoWinsArray = localStorage.getItem("whoWins") ? JSON.parse(localStorage.getItem("whoWins")) : [];
 
     // CALCULATIONS
 
     if ((sign === "paper" && random === 1) || (sign === "rock" && random === 2) || (sign === "scissors" && random === 0)) {
-        you++;
+        whoWinsArray.push("you");
     } else if ((sign === "paper" && random === 2) || (sign === "rock" && random === 0) || (sign === "scissors" && random === 1)) {
-        AI++;
+        whoWinsArray.push("AI");
     } else if ((sign === "paper" && random === 0) || (sign === "rock" && random === 1) || (sign === "scissors" && random === 2)) {
-        draw++;
+        whoWinsArray.push("draw");
     }
     // calculate round count
-    round++;
     document.querySelectorAll(".round").forEach((elem) => {
-        elem.innerHTML = round;
+        elem.innerHTML = whoWinsArray.length;
     })
+    // write to local storage:
+    localStorage.setItem("whoWins", JSON.stringify(whoWinsArray));
 
     // ANIMATIONS + STYLES
     leftHandImage.style.animation = "handAnimationLeft 0.8s ease-in 1 forwards";
@@ -41,7 +52,7 @@ function start(sign) {
 // when animation stops, do :
 leftHandImage.addEventListener("animationend", function () {
 
-    let randomForAI;
+    let randomForAI; //AI ni gaplari uchun random value
 
     // set both animation to null
     leftHandImage.style = null;
@@ -92,40 +103,29 @@ leftHandImage.addEventListener("animationend", function () {
     }
 
     // write all scores accordingly
-    document.querySelector("#humanScore").innerHTML = you;
-    document.querySelector("#AIScore").innerHTML = AI;
-    document.querySelector("#drawScore").innerHTML = draw;
-
-    // console.log("tugadi L:)")
+    document.querySelector("#humanScore").innerHTML = whoWinsArray.filter(function (elem) {
+        return elem === "you";
+    }).length;
+    document.querySelector("#AIScore").innerHTML = whoWinsArray.filter(function (elem) {
+        return elem === "AI";
+    }).length;
+    document.querySelector("#drawScore").innerHTML = whoWinsArray.filter(function (elem) {
+        return elem === "draw";
+    }).length;
 
 });
-
-/***
-🔸 Rock, Paper, Scissors game
-▪️ Sahifa tuzish
-▪️ Sahifada kirgan odam o'yin o'yanishi mumkin bo'lishi mumkin
-▪️ Raqib sifatida biz tuzgan dasturni o'zi random harakat ko'rsatib turadi va natijalar hisoblanadi
-▪️ Natijalar Local Storage da saqlanishi kerak
-▪️ Sahifada animatsiyalar bo'lishi kerak, qo'l qimirlashiga o'xshash
-
-▪️ Demo: https://www.afiniti.com/corporate/rock-paper-scissors
-
-▫️ Paper:     https://www.afiniti.com/static/media/paper.24d69089.png
-▫️ Rock:      https://www.afiniti.com/static/media/rock.fae7b245.png
-▫️ Scissosrs: https://www.afiniti.com/static/media/scissors.0dc12241.png
-*/
-
-
-/***NEVER NEST EVENT LISTENERS INSIDE EACH OTHER (like never write "animationend" inside start function. Because start function is on onClick())*/
-
-/**This bug cost me 2 hours
-
- leftHandImage.addEventListener("animationend", function () {
-
-
-        // if(round===3){alert("3")}
-
-        //
-    });
-*/
-
+// localStorage ni tozala:
+let span = document.createElement("span");
+span.innerHTML = "restart";
+span.classList.add("re-play");
+document.querySelector("#header-round").appendChild(span);
+span.addEventListener("click", (e) => {
+    localStorage.setItem("whoWins", "[]");
+    document.querySelector("#humanScore").innerHTML = 0;
+    document.querySelector("#AIScore").innerHTML = 0;
+    document.querySelector("#drawScore").innerHTML = 0;
+    document.querySelector("#AI_Says").innerHTML = `Boshidan boshlasak boshlayveramiz`;
+    document.querySelectorAll(".round").forEach((elem) => {
+        elem.innerHTML = 0;
+    })
+});

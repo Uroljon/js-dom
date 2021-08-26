@@ -5,7 +5,7 @@
     font-family: sans-serif;
 }
 .wrapper {
-    h2{
+    h2 {
         color: red;
     }
     width: 85%;
@@ -48,7 +48,7 @@
                 svg {
                     width: 90%;
                     cursor: pointer;
-                }               
+                }
             }
         }
         .game-right {
@@ -56,7 +56,7 @@
             position: relative;
             img {
                 transform: scaleX(-1);
-            }           
+            }
             a {
                 color: rgb(32, 153, 153);
                 text-decoration: none;
@@ -76,7 +76,7 @@
             hr {
                 margin: 20px 0;
             }
-            #AI_Says{
+            #AI_Says {
                 font-size: 1.5vw;
             }
         }
@@ -107,11 +107,11 @@
     }
 }
 
-@media (max-width: 768px){
-    .wrapper{
+@media (max-width: 768px) {
+    .wrapper {
         width: 98%;
 
-        .game-wrapper {      
+        .game-wrapper {
             .game-left,
             .game-right {
                 width: 35%;
@@ -128,7 +128,7 @@
                         display: block;
                         margin: auto;
                         cursor: pointer;
-                    }               
+                    }
                 }
             }
             .game-right {
@@ -140,14 +140,29 @@
                 width: 30%;
                 padding: 5% 2%;
                 font-size: 3vw;
-                #round-left-result svg, #round-right-result svg{
+                #round-left-result svg,
+                #round-right-result svg {
                     width: 25% !important;
                 }
-                #AI_Says{
+                #AI_Says {
                     font-size: 2vw;
                 }
             }
         }
     }
-   
+}
+
+.re-play {
+    position: absolute;
+    top: 33px;
+    left: 55vw;
+    cursor: pointer;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 5px;
+    transition: 300ms;
+    &:hover {
+        background-color: black;
+        color: white;
+    }
 }
