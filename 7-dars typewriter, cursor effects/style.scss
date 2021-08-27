@@ -1,0 +1,236 @@
+$font: Source Sans Pro SemiBold normal, sans-serif;
+
+// remove ununexpected gaps
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font;
+}
+ul,
+a {
+    list-style: none;
+    text-decoration: none;
+}
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.container-fluid {
+    width: 100%;
+    padding: 0 15px;
+}
+// navbar
+$navbar_background: transparent;
+$navbar_color: rgb(255, 255, 255);
+$link_hover_background: transparent;
+$link_hover_color: #d90a2c;
+$navbar_link_padding: 30px;
+$navbar_font_size: 16px;
+nav {
+    background-color: $navbar_background;
+    font-size: $navbar_font_size;
+    box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.26);
+    box-shadow: 0px 2px 10px 2px rgba(255, 255, 255, 0.26);
+    position: fixed;
+    width: 100%;
+    .navbar-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .navbar-left {
+            button {
+                width: 50px;
+                height: 50px;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                span {
+                    display: block;
+                    margin: 6px auto;
+                    width: 18px;
+                    height: 2px;
+                    background-color: white;
+                    transition: 0.3s;
+                }
+            }
+        }
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            position: relative;
+            .logo {
+                width: 100px;
+            }
+            li > a {
+                padding: $navbar_link_padding;
+                display: block;
+                &:hover {
+                    background-color: $link_hover_background;
+                    color: $link_hover_color;
+                    transition: 400ms;
+                }
+                span:first-child {
+                    display: block;
+                    text-align: right;
+                    font-size: 12px;
+                    opacity: 0.5;
+                }
+            }
+        }
+        .navbar-right {
+            button {
+                position: relative;
+                margin-right: 15px;
+                padding: 0 15px;
+                background-color: #d90a2c;
+                border: none;
+                line-height: 38px;
+                font-size: 16px;
+                color: white;
+                border-radius: 5px;
+                svg {
+                    margin-left: 10px;
+                }
+                &:hover {
+                    .btn-lang-hover {
+                        transform: scale(1);
+                        transition: 0.3s;
+                    }
+                }
+                .btn-lang-hover {
+                    background-color: rgba(217, 10, 44, 0.5);
+                    position: absolute;
+                    width: 100%;
+                    right: 0;
+                    border-radius: 5px;
+                    padding: 5px;
+                    transform: scale(0);
+                    a {
+                        display: block;
+                        font-weight: 700;
+                        &:hover {
+                            color: yellow;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    a {
+        color: $navbar_color;
+    }
+}
+
+header {
+    background-image: url(https://projectmanagers.uz/_nuxt/img/main-bg.f3afdc4.png);
+    background-size: cover;
+    padding-top: 120px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    .header-wrapper {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        .header-left {
+            p {
+                font-size: 18px;
+                color: hsla(0, 0%, 100%, 0.75);
+            }
+            h2 {
+                margin: 20px 0;
+                font-size: 80px;
+                width: 50%;
+                font-family: Source Sans Pro SemiBold normal, sans-serif;
+            }
+            .read_more {
+                font-size: 16px;
+                background-color: transparent;
+                border: none;
+                a {
+                    color: white;
+                }
+                &:hover {
+                    a {
+                        color: $link_hover_color;
+                        transition: 0.5s;
+
+                        i {
+                            margin-left: 5px;
+                            transition: 0.2s;
+                        }
+                    }
+                }
+            }
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .header-right-video {
+                cursor: pointer;
+                width: 62px;
+                height: 62px;
+                background-color: #d90a2c;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0 0 0 0 #d90a2c;
+                animation: pulse-red 1.5s infinite forwards;
+            }
+        }
+    }
+}
+
+@keyframes pulse-red {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(217, 10, 44, 0.7);
+    }
+    10% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 0 rgba(217, 10, 44, 0.9);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 15px rgba(217, 10, 44, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 15px rgba(217, 10, 44, 0);
+    }
+}
+
+// media
+// sm
+@media (min-width: 576px) {
+    .container {
+        width: 540px;
+    }
+}
+// md
+@media (min-width: 768px) {
+    .container {
+        width: 720px;
+    }
+}
+// lg
+@media (min-width: 992px) {
+    .container {
+        width: 960px;
+    }
+}
+// xl
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+}
+// xxl
+@media (min-width: 1400px) {
+    .container {
+        width: 1320px;
+    }
+}
