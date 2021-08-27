@@ -34,6 +34,9 @@ function typeWriterDelete() {
     }
     else{
         wordIndex ++;
+        if(wordIndex===typewriter_message.length){
+            wordIndex = 0;
+        }
         message = typewriter_message[wordIndex];
         typeWriter();
     }
