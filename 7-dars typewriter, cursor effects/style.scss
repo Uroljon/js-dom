@@ -7,6 +7,9 @@ $font: Source Sans Pro SemiBold normal, sans-serif;
     box-sizing: border-box;
     font-family: $font;
 }
+body {
+    cursor: none;
+}
 ul,
 a {
     list-style: none;
@@ -44,7 +47,7 @@ nav {
                 height: 50px;
                 border: none;
                 background-color: transparent;
-                cursor: pointer;
+                cursor: none;
                 span {
                     display: block;
                     margin: 6px auto;
@@ -52,6 +55,11 @@ nav {
                     height: 2px;
                     background-color: white;
                     transition: 0.3s;
+                }
+                &:hover {
+                    span {
+                        background-color: #d90a2c;
+                    }
                 }
             }
         }
@@ -65,6 +73,7 @@ nav {
             li > a {
                 padding: $navbar_link_padding;
                 display: block;
+                cursor: none;
                 &:hover {
                     background-color: $link_hover_background;
                     color: $link_hover_color;
@@ -130,6 +139,7 @@ header {
     display: flex;
     align-items: center;
     color: white;
+    z-index: -1;
     .header-wrapper {
         display: grid;
         grid-template-columns: 50% 50%;
@@ -148,6 +158,7 @@ header {
                 font-size: 16px;
                 background-color: transparent;
                 border: none;
+                z-index: 100;
                 a {
                     color: white;
                 }
@@ -182,6 +193,15 @@ header {
             }
         }
     }
+}
+#cursor {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #d90a2c;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    // z-index: -1;
 }
 
 @keyframes pulse-red {

@@ -47,3 +47,9 @@ window.addEventListener("DOMContentLoaded", () => {
     typeWriter();
 })
 
+/*********************************************************** */
+let cursor = document.getElementById("cursor");
+window.addEventListener("mousemove", (e)=>{
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+})

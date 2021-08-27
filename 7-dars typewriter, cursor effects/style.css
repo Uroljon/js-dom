@@ -5,6 +5,10 @@
   font-family: Source Sans Pro SemiBold normal, sans-serif;
 }
 
+body {
+  cursor: none;
+}
+
 ul,
 a {
   list-style: none;
@@ -39,7 +43,7 @@ nav .navbar-wrapper .navbar-left button {
   height: 50px;
   border: none;
   background-color: transparent;
-  cursor: pointer;
+  cursor: none;
 }
 nav .navbar-wrapper .navbar-left button span {
   display: block;
@@ -48,6 +52,9 @@ nav .navbar-wrapper .navbar-left button span {
   height: 2px;
   background-color: white;
   transition: 0.3s;
+}
+nav .navbar-wrapper .navbar-left button:hover span {
+  background-color: #d90a2c;
 }
 nav .navbar-wrapper .navbar-nav {
   display: flex;
@@ -60,6 +67,7 @@ nav .navbar-wrapper .navbar-nav .logo {
 nav .navbar-wrapper .navbar-nav li > a {
   padding: 30px;
   display: block;
+  cursor: none;
 }
 nav .navbar-wrapper .navbar-nav li > a:hover {
   background-color: transparent;
@@ -118,6 +126,7 @@ header {
   display: flex;
   align-items: center;
   color: white;
+  z-index: -1;
 }
 header .header-wrapper {
   display: grid;
@@ -137,6 +146,7 @@ header .header-wrapper .header-left .read_more {
   font-size: 16px;
   background-color: transparent;
   border: none;
+  z-index: 100;
 }
 header .header-wrapper .header-left .read_more a {
   color: white;
@@ -166,6 +176,15 @@ header .header-wrapper .header-right .header-right-video {
   box-shadow: 0 0 0 0 #d90a2c;
   -webkit-animation: pulse-red 1.5s infinite forwards;
           animation: pulse-red 1.5s infinite forwards;
+}
+
+#cursor {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #d90a2c;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
 @-webkit-keyframes pulse-red {
